@@ -1,6 +1,14 @@
 [
-  { "words": ["Vorrei", "prenotare", "una", "camera", "doppia"], "de": "Ich möchte ein Doppelzimmer buchen." },
-  { "words": ["La", "colazione", "è", "inclusa", "nel", "prezzo"], "de": "Ist das Frühstück im Preis enthalten?" },
-  { "words": ["Domani", "parto", "per", "Roma"], "de": "Morgen fahre ich nach Rom ab." },
-  { "words": ["Quanto", "costa", "una", "notte"], "de": "Wie viel kostet eine Nacht?" }
+  { "words": ["Ciao", "come", "ti", "chiami"], "de": "Hallo, wie heißt du?" },
+  { "words": ["Quanti", "anni", "hai"], "de": "Wie alt bist du?" },
+  { "words": ["Mi", "chiamo", "Francis"], "de": "Ich heiße Francis." },
+  { "words": ["Non", "vado", "mai", "al", "cinema"], "de": "Ich gehe nie ins Kino." },
+  { "words": ["Leggiamo", "spesso", "libri"], "de": "Wir lesen oft Bücher." },
+  { "words": ["Non", "ballo", "mai", "la", "salsa"], "de": "Ich tanze nie Salsa." },
+  { "words": ["Lui", "fa", "sempre", "sport", "il", "sabato"], "de": "Er macht immer Sport am Samstag." },
+  { "words": ["Il", "lunedì", "vado", "al", "corso", "d'italiano"], "de": "Am Montag gehe ich zum Italienischkurs." },
+  { "words": ["La", "domenica", "dormo", "a", "lungo"], "de": "Am Sonntag schlafe ich lange." },
+  { "words": ["Il", "sabato", "gioco", "a", "tennis"], "de": "Am Samstag spiele ich Tennis." },
+  { "words": ["Il", "mercoledì", "mi", "piace", "leggere"], "de": "Am Mittwoch lese ich gerne." },
+  { "words": ["Qualche", "volta", "bevo", "il", "caffè"], "de": "Manchmal trinke ich Kaffee." }
 ]

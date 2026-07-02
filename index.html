@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Italiano A1 — Übungs-App</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="profile">
+    <span>Profil: <b id="pname">Francis</b></span>
+    <button id="switch">wechseln</button>
+  </div>
+
+  <div class="eyebrow">VHS · Corso d'italiano A1</div>
+  <h1>Ripassa <em>l'italiano</em></h1>
+  <p class="sub">Vokabeln, Verben &amp; Sätze aus dem Kurs wiederholen.</p>
+
+  <div class="leitner" id="leitner"></div>
+  <div class="meta" id="meta"></div>
+
+  <nav>
+    <button data-mode="card" class="active">Karten</button>
+    <button data-mode="mc">Auswahl</button>
+    <button data-mode="type">Tippen</button>
+    <button data-mode="pp">Passato</button>
+    <button data-mode="build">Sätze</button>
+  </nav>
+
+  <div class="dir" id="dirbar">
+    <button data-dir="it2de" class="active">IT → DE</button>
+    <button data-dir="de2it">DE → IT</button>
+  </div>
+
+  <div class="card" id="stage"></div>
+
+  <p class="footnote">
+    Fortschritt wird lokal in diesem Browser gespeichert (pro Profil).
+  </p>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

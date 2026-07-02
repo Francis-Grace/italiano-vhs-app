@@ -1,0 +1,13 @@
+[
+  { "it": "l'appartamento", "de": "die Wohnung", "ex": "Cerco un appartamento per le vacanze." },
+  { "it": "la stazione", "de": "der Bahnhof", "ex": "La stazione è vicino all'albergo." },
+  { "it": "prenotare", "de": "buchen", "ex": "Vorrei prenotare una camera doppia." },
+  { "it": "il viaggio", "de": "die Reise", "ex": "Buon viaggio!" },
+  { "it": "la colazione", "de": "das Frühstück", "ex": "La colazione è inclusa?" },
+  { "it": "la chiave", "de": "der Schlüssel", "ex": "Ecco la chiave della camera." },
+  { "it": "il conto", "de": "die Rechnung", "ex": "Il conto, per favore." },
+  { "it": "stanco", "itF": "stanca", "de": "müde", "ex": "Sono stanco/a dopo il viaggio." },
+  { "it": "contento", "itF": "contenta", "de": "zufrieden", "ex": "Sono molto contento/a!" },
+  { "it": "comprare", "de": "kaufen", "ex": "Voglio comprare un biglietto." },
+  { "it": "la settimana", "de": "die Woche", "ex": "Resto qui una settimana." }
+]

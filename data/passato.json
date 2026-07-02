@@ -1,0 +1,7 @@
+[
+  { "pre": "Ieri", "post": "al cinema.", "answers": ["sono andato", "sono andata"], "hint": "andare · io" },
+  { "pre": "Stamattina", "post": "un caffè.", "answers": ["ho preso"], "hint": "prendere · io" },
+  { "pre": "Domenica", "post": "a casa tutto il giorno.", "answers": ["sono rimasto", "sono rimasta"], "hint": "rimanere · io" },
+  { "pre": "Ieri sera", "post": "una pizza.", "answers": ["ho mangiato"], "hint": "mangiare · io" },
+  { "pre": "La settimana scorsa", "post": "a Roma.", "answers": ["sono stato", "sono stata"], "hint": "essere · io" }
+]

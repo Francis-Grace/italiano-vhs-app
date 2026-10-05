@@ -2,46 +2,93 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Italiano A1 — Übungs-App</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ripassa · Italiano A1</title>
+<meta name="description" content="Vokabeln, Verben und Sätze aus dem VHS-Italienischkurs wiederholen.">
+<meta name="theme-color" content="#F6F2EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#11181F" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Ripassa">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="preload" href="fonts/fraunces-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/dm-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class="wrap">
   <div class="profile">
-    <span>Profil: <b id="pname">Francis</b></span>
-    <button id="switch">wechseln</button>
+    <span>Profil: <b id="pname">–</b></span>
+    <button id="switch" type="button">wechseln</button>
   </div>
 
   <div class="eyebrow">VHS · Corso d'italiano A1</div>
-  <h1>Ripassa <em>l'italiano</em></h1>
+  <h1>Ripassa <em lang="it">l'italiano</em></h1>
   <p class="sub">Vokabeln, Verben &amp; Sätze aus dem Kurs wiederholen.</p>
 
-  <div class="leitner" id="leitner"></div>
-  <div class="meta" id="meta"></div>
-
-  <nav>
-    <button data-mode="card" class="active">Karten</button>
-    <button data-mode="mc">Auswahl</button>
-    <button data-mode="type">Tippen</button>
-    <button data-mode="pp">Passato</button>
-    <button data-mode="build">Sätze</button>
-  </nav>
-
-  <div class="dir" id="dirbar">
-    <button data-dir="it2de" class="active">IT → DE</button>
-    <button data-dir="de2it">DE → IT</button>
+  <div class="install" id="install">
+    <span id="installText">Als App auf dem Startbildschirm installieren?</span>
+    <button class="pill" id="installBtn" type="button">Installieren</button>
+    <button class="pill x" id="installX" type="button" aria-label="Hinweis schließen">✕</button>
   </div>
 
-  <div class="card" id="stage"></div>
+  <div class="filter">
+    <label>Kurs <select id="fKurs"></select></label>
+    <label>Lektion <select id="fLek"></select></label>
+  </div>
+
+  <div class="leitner" id="leitner" aria-hidden="true"></div>
+  <div class="meta" id="meta" aria-live="polite"></div>
+
+  <nav aria-label="Übungsart">
+    <button type="button" data-mode="card" aria-pressed="true">Karten</button>
+    <button type="button" data-mode="mc" aria-pressed="false">Auswahl</button>
+    <button type="button" data-mode="type" aria-pressed="false">Tippen</button>
+    <button type="button" data-mode="vb" aria-pressed="false">Verben</button>
+    <button type="button" data-mode="pp" aria-pressed="false">Passato</button>
+    <button type="button" data-mode="build" aria-pressed="false">Sätze</button>
+  </nav>
+
+  <div class="dir" id="dirbar" role="group" aria-label="Richtung">
+    <button type="button" data-dir="it2de" aria-pressed="true">IT → DE</button>
+    <button type="button" data-dir="de2it" aria-pressed="false">DE → IT</button>
+  </div>
+
+  <div class="dir" id="vmbar" role="group" aria-label="Übungsform" style="display:none">
+    <button type="button" data-vm="table" aria-pressed="true">Ganze Tabelle</button>
+    <button type="button" data-vm="one" aria-pressed="false">Einzelform</button>
+  </div>
+
+  <main class="card" id="stage" aria-live="polite"></main>
 
   <p class="footnote">
-    Fortschritt wird lokal in diesem Browser gespeichert (pro Profil).
+    Fortschritt wird nur auf diesem Gerät gespeichert (pro Profil).<br>
+    Vor dem Wechsel auf ein neues Gerät oder Browserdaten-Löschen: sichern.
   </p>
+  <div class="tools">
+    <button class="pill" id="exportBtn" type="button">Fortschritt sichern</button>
+    <button class="pill" id="importBtn" type="button">Wiederherstellen</button>
+    <input type="file" id="importFile" accept="application/json,.json" hidden>
+  </div>
 </div>
+
+<dialog id="profileDlg" aria-labelledby="dlgTitle">
+  <form method="dialog" id="profileForm">
+    <h2 id="dlgTitle">Ciao! Come ti chiami?</h2>
+    <p>Dein Name trennt deinen Fortschritt von dem anderer, die dieses Gerät nutzen.</p>
+    <div class="known" id="knownProfiles"></div>
+    <label class="sr-only" for="profileInput">Name</label>
+    <input id="profileInput" autocomplete="given-name" placeholder="Dein Vorname" maxlength="30">
+    <div class="err" id="profileErr" aria-live="polite"></div>
+    <div class="row">
+      <button class="btn ghost" type="button" id="profileCancel">Abbrechen</button>
+      <button class="btn primary" type="submit">Los geht's</button>
+    </div>
+  </form>
+</dialog>
 
 <script src="js/app.js"></script>
 </body>

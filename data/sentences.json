@@ -1,14 +1,14 @@
 [
-  { "words": ["Ciao", "come", "ti", "chiami"], "de": "Hallo, wie heißt du?" },
-  { "words": ["Quanti", "anni", "hai"], "de": "Wie alt bist du?" },
-  { "words": ["Mi", "chiamo", "Francis"], "de": "Ich heiße Francis." },
-  { "words": ["Non", "vado", "mai", "al", "cinema"], "de": "Ich gehe nie ins Kino." },
-  { "words": ["Leggiamo", "spesso", "libri"], "de": "Wir lesen oft Bücher." },
-  { "words": ["Non", "ballo", "mai", "la", "salsa"], "de": "Ich tanze nie Salsa." },
-  { "words": ["Lui", "fa", "sempre", "sport", "il", "sabato"], "de": "Er macht immer Sport am Samstag." },
-  { "words": ["Il", "lunedì", "vado", "al", "corso", "d'italiano"], "de": "Am Montag gehe ich zum Italienischkurs." },
-  { "words": ["La", "domenica", "dormo", "a", "lungo"], "de": "Am Sonntag schlafe ich lange." },
-  { "words": ["Il", "sabato", "gioco", "a", "tennis"], "de": "Am Samstag spiele ich Tennis." },
-  { "words": ["Il", "mercoledì", "mi", "piace", "leggere"], "de": "Am Mittwoch lese ich gerne." },
-  { "words": ["Qualche", "volta", "bevo", "il", "caffè"], "de": "Manchmal trinke ich Kaffee." }
+  {"words": ["Ciao", "come", "ti", "chiami"], "de": "Hallo, wie heißt du?", "kurs": "A1.1"},
+  {"words": ["Quanti", "anni", "hai"], "de": "Wie alt bist du?", "kurs": "A1.1"},
+  {"words": ["Mi", "chiamo", "Francis"], "de": "Ich heiße Francis.", "kurs": "A1.1"},
+  {"words": ["Non", "vado", "mai", "al", "cinema"], "de": "Ich gehe nie ins Kino.", "kurs": "A1.1"},
+  {"words": ["Leggiamo", "spesso", "libri"], "alt": [["Spesso", "leggiamo", "libri"]], "de": "Wir lesen oft Bücher.", "kurs": "A1.1"},
+  {"words": ["Non", "ballo", "mai", "la", "salsa"], "de": "Ich tanze nie Salsa.", "kurs": "A1.1"},
+  {"words": ["Lui", "fa", "sempre", "sport", "il", "sabato"], "alt": [["Il", "sabato", "lui", "fa", "sempre", "sport"]], "de": "Er macht immer Sport am Samstag.", "kurs": "A1.1"},
+  {"words": ["Il", "lunedì", "vado", "al", "corso", "d'italiano"], "alt": [["Vado", "al", "corso", "d'italiano", "il", "lunedì"]], "de": "Am Montag gehe ich zum Italienischkurs.", "kurs": "A1.1"},
+  {"words": ["La", "domenica", "dormo", "a", "lungo"], "alt": [["Dormo", "a", "lungo", "la", "domenica"]], "de": "Am Sonntag schlafe ich lange.", "kurs": "A1.1"},
+  {"words": ["Il", "sabato", "gioco", "a", "tennis"], "alt": [["Gioco", "a", "tennis", "il", "sabato"]], "de": "Am Samstag spiele ich Tennis.", "kurs": "A1.1"},
+  {"words": ["Il", "mercoledì", "mi", "piace", "leggere"], "alt": [["Mi", "piace", "leggere", "il", "mercoledì"]], "de": "Am Mittwoch lese ich gerne.", "kurs": "A1.1"},
+  {"words": ["Qualche", "volta", "bevo", "il", "caffè"], "alt": [["Bevo", "il", "caffè", "qualche", "volta"]], "de": "Manchmal trinke ich Kaffee.", "kurs": "A1.1"}
 ]

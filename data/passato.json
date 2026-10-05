@@ -1,7 +1,7 @@
 [
-  { "pre": "Ieri", "post": "al cinema.", "answers": ["sono andato", "sono andata"], "hint": "andare · io" },
-  { "pre": "Stamattina", "post": "un caffè.", "answers": ["ho preso"], "hint": "prendere · io" },
-  { "pre": "Domenica", "post": "a casa tutto il giorno.", "answers": ["sono rimasto", "sono rimasta"], "hint": "rimanere · io" },
-  { "pre": "Ieri sera", "post": "una pizza.", "answers": ["ho mangiato"], "hint": "mangiare · io" },
-  { "pre": "La settimana scorsa", "post": "a Roma.", "answers": ["sono stato", "sono stata"], "hint": "essere · io" }
+  {"pre": "Ieri", "post": "al cinema.", "answers": ["sono andato", "sono andata"], "hint": "andare · io", "kurs": "A1.2"},
+  {"pre": "Stamattina", "post": "un caffè.", "answers": ["ho preso"], "hint": "prendere · io", "kurs": "A1.2"},
+  {"pre": "Domenica", "post": "a casa tutto il giorno.", "answers": ["sono rimasto", "sono rimasta"], "hint": "rimanere · io", "kurs": "A1.2"},
+  {"pre": "Ieri sera", "post": "una pizza.", "answers": ["ho mangiato"], "hint": "mangiare · io", "kurs": "A1.2"},
+  {"pre": "La settimana scorsa", "post": "a Roma.", "answers": ["sono stato", "sono stata"], "hint": "essere · io", "kurs": "A1.2"}
 ]

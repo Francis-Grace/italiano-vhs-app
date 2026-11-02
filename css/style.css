@@ -154,6 +154,21 @@ input.fill-in.shake{animation:shake .35s}
 .empty{text-align:center}
 .empty .prompt{font-size:26px}
 
+/* ---------- Grammatik & Infos ---------- */
+.infos{margin-top:20px}
+.infos h2{font-family:'Fraunces',serif;font-size:20px;font-weight:600;margin-bottom:8px}
+.infos details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:8px;padding:0 14px}
+.infos summary{cursor:pointer;font-weight:600;font-size:14px;padding:12px 0}
+.infos details[open] summary{color:var(--azzurro-deep)}
+.infos p{font-size:14px;margin-bottom:10px}
+.infos em{color:var(--azzurro-deep)}
+.infos td b{color:var(--azzurro-deep)}
+.info-scroll{overflow-x:auto;margin-bottom:12px}
+.infos table{border-collapse:collapse;width:100%;font-size:13px}
+.infos th{text-align:left;font-weight:600;border-bottom:1.5px solid var(--ink-soft);padding:4px 8px 4px 0;white-space:nowrap}
+.infos td{border-bottom:1px solid var(--line);padding:5px 8px 5px 0;vertical-align:top}
+.infos tr:last-child td{border-bottom:0}
+
 /* ---------- Fußzeile, Installieren ---------- */
 .footnote{font-size:11.5px;color:var(--ink-soft);text-align:center;margin-top:20px;line-height:1.5}
 .tools{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:10px}

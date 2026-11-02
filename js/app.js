@@ -38,11 +38,12 @@ const store = {
 // ======================================================================
 // Inhalte
 // ======================================================================
-let VOCAB = [], PP = [], SENT = [], VERBS = [];
+let VOCAB = [], PP = [], SENT = [], VERBS = [], INFOS = [];
 
 async function loadContent() {
   const get = f => fetch(f).then(r => { if (!r.ok) throw new Error(f); return r.json(); });
-  const [vocab, pp, sent, verbs] = await Promise.all([get("data/vocab.json"), get("data/passato.json"), get("data/sentences.json"), get("data/verbs.json")]);
+  const [vocab, pp, sent, verbs, infos] = await Promise.all([get("data/vocab.json"), get("data/passato.json"), get("data/sentences.json"), get("data/verbs.json"), get("data/infos.json").catch(() => [])]);
+  INFOS = infos;
   VOCAB = vocab.map(v => ({
     ...v,
     id: v.id || slug(v.it),
@@ -116,7 +117,7 @@ function pool(m = mode()) {
 }
 
 function renderFilter() {
-  const all = [...VOCAB, ...VERBS, ...PP, ...SENT];
+  const all = [...VOCAB, ...VERBS, ...PP, ...SENT, ...INFOS];
   const kurse = [...new Set(all.map(o => o.kurs).filter(Boolean))].sort();
   if (settings.kurs !== ALL && !kurse.includes(settings.kurs)) settings.kurs = ALL;
   $("fKurs").innerHTML = `<option value="${ALL}">Alle Kurse</option>` +
@@ -213,7 +214,7 @@ const stage = $("stage");
 let cur = null;
 const mode = () => settings.mode;
 const dir = () => settings.dir;
-const MODE_NAMES = { card: "Vokabeln", mc: "Vokabeln", type: "Vokabeln", vb: "Verben", pp: "Passato-Übungen", build: "Sätze" };
+const MODE_NAMES = { card: "Vokabeln", mc: "Vokabeln", type: "Vokabeln", vb: "Verben", pp: "Lückensätze", build: "Sätze" };
 
 function tryDots(used) {
   return Array.from({ length: MAX_TRIES }, (_, i) => `<span class="dot ${i < used ? "used" : ""}"></span>`).join("") +
@@ -395,14 +396,17 @@ function renderType() {
   });
 }
 
+// Kein Leerzeichen vor Satzzeichen: „Prendi l'ombrello, ____.“
+const ppAfter = post => (/^[.,;:!?]/.test(post) ? "" : " ") + esc(post);
+
 function renderPP() {
   cur = nextItem(); if (!cur) return;
   const q = cur;
   stage.innerHTML = `${extraTag()}
-    <div class="prompt-lab">Passato Prossimo · Lücke füllen</div>
-    <div class="pp-sentence" lang="it">${esc(q.pre)} <span class="pp-blank">&nbsp;____&nbsp;</span> ${esc(q.post)}</div>
+    <div class="prompt-lab">${esc(q.thema || "Passato Prossimo")} · Lücke füllen</div>
+    <div class="pp-sentence" lang="it">${esc(q.pre)} <span class="pp-blank">&nbsp;____&nbsp;</span>${ppAfter(q.post)}</div>
     <div class="pp-hint">${esc(q.hint)}</div>
-    <label class="sr-only" for="ans">Verbform im Passato Prossimo</label>
+    <label class="sr-only" for="ans">Deine Antwort</label>
     <input class="fill-in" id="ans" placeholder="deine Antwort…" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" lang="it">
     <div class="tries" id="tries">${tryDots(0)}</div>
     <div class="feedback" id="fb" aria-live="assertive"></div>
@@ -411,7 +415,7 @@ function renderPP() {
     answers: q.answers, lang: "it",
     onDone: (res, fb) => {
       grade(q, res); renderProgress();
-      fb.insertAdjacentHTML("beforeend", `<small lang="it">${esc(q.pre)} <b>${esc(q.answers[0])}</b> ${esc(q.post)}</small>`);
+      fb.insertAdjacentHTML("beforeend", `<small lang="it">${esc(q.pre)} <b>${esc(q.answers[0])}</b>${ppAfter(q.post)}</small>`);
     }
   });
 }
@@ -433,7 +437,7 @@ function renderBuild() {
     <div class="feedback" id="fb" aria-live="assertive"></div>
     <div class="row"><button class="btn primary" id="chk" type="button">Prüfen</button></div>`;
   const poolEl = $("pool"), tgt = $("tgt"), fb = $("fb");
-  const pretty = s => s.charAt(0).toUpperCase() + s.slice(1) + ".";
+  const pretty = s => s.charAt(0).toUpperCase() + s.slice(1) + (q.frage ? "?" : ".");
   function draw() {
     poolEl.innerHTML = ""; tgt.innerHTML = "";
     tiles.forEach(o => {
@@ -565,6 +569,24 @@ function next() {
 }
 function resetSession() { extra = false; lastId = null; }
 
+// ---------- Grammatik & Infos (data/infos.json) ----------
+// **fett** und *italienisch kursiv* in den Texten
+const rich = s => esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\*(.+?)\*/g, '<em lang="it">$1</em>');
+function infoTable(t) {
+  return `<div class="info-scroll"><table>
+    <thead><tr>${t.kopf.map(k => `<th>${rich(k)}</th>`).join("")}</tr></thead>
+    <tbody>${t.zeilen.map(z => `<tr>${z.map(c => `<td>${rich(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+}
+function renderInfos() {
+  const items = INFOS.filter(matchesFilter);
+  $("infos").hidden = !items.length;
+  $("infosList").innerHTML = items.map(i => `<details>
+    <summary>${esc(i.titel)}</summary>
+    ${(i.text || []).map(p => `<p>${rich(p)}</p>`).join("")}
+    ${i.tabelle ? infoTable(i.tabelle) : ""}
+  </details>`).join("");
+}
+
 // ======================================================================
 // Bedienelemente
 // ======================================================================
@@ -582,8 +604,8 @@ document.querySelectorAll("#dirbar button").forEach(b => b.onclick = () => {
 document.querySelectorAll("#vmbar button").forEach(b => b.onclick = () => {
   settings.vm = b.dataset.vm; saveSettings(); syncPressed(); next();
 });
-$("fKurs").onchange = e => { settings.kurs = e.target.value; settings.lek = ALL; saveSettings(); resetSession(); renderFilter(); next(); };
-$("fLek").onchange = e => { settings.lek = e.target.value; saveSettings(); resetSession(); next(); };
+$("fKurs").onchange = e => { settings.kurs = e.target.value; settings.lek = ALL; saveSettings(); resetSession(); renderFilter(); renderInfos(); next(); };
+$("fLek").onchange = e => { settings.lek = e.target.value; saveSettings(); resetSession(); renderInfos(); next(); };
 
 // Tasten 1–4 in „Auswahl“
 document.addEventListener("keydown", e => {
@@ -675,7 +697,7 @@ if ("serviceWorker" in navigator && location.protocol !== "file:") {
     stage.innerHTML = `<div class="empty"><div class="prompt">Ops!</div><p class="sub">Die Inhalte konnten nicht geladen werden. Bitte die Seite neu laden${location.protocol === "file:" ? " – oder die App über die Web-Adresse öffnen statt als Datei" : ""}.</p></div>`;
     return;
   }
-  renderFilter(); syncPressed();
+  renderFilter(); renderInfos(); syncPressed();
   if (profile) { $("pname").textContent = profile; loadProgress(); next(); }
   else { renderProgress(); askProfile(true); }
 })();

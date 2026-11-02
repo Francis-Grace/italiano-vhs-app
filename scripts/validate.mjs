@@ -69,10 +69,24 @@ verbs.forEach((v, i) => {
   if (vIds.has(id)) errors.push(`${w}: doppelt`); vIds.add(id);
 });
 
+// ---------- Grammatik & Infos ----------
+const infos = load("data/infos.json");
+infos.forEach((n, i) => {
+  const w = common("infos.json", i, n, n.titel ?? "?");
+  if (!str(n.titel)) errors.push(`${w}: "titel" fehlt`);
+  if (n.text != null && (!Array.isArray(n.text) || !n.text.every(str))) errors.push(`${w}: "text" muss eine Liste von Absätzen sein`);
+  if (n.tabelle) {
+    const { kopf, zeilen } = n.tabelle;
+    if (!Array.isArray(kopf) || !Array.isArray(zeilen) || !zeilen.every(z => Array.isArray(z) && z.length === kopf.length))
+      errors.push(`${w}: jede Tabellenzeile braucht so viele Spalten wie "kopf"`);
+  }
+  if (!n.text?.length && !n.tabelle) errors.push(`${w}: "text" oder "tabelle" fehlt`);
+});
+
 // ---------- Ergebnis ----------
 const kurse = {};
 [...vocab, ...verbs, ...pp, ...sent].forEach(o => { kurse[o.kurs] = (kurse[o.kurs] || 0) + 1; });
-console.log(`Vokabeln: ${vocab.length} · Verben: ${verbs.length} · Passato: ${pp.length} · Sätze: ${sent.length}`);
+console.log(`Vokabeln: ${vocab.length} · Verben: ${verbs.length} · Passato: ${pp.length} · Sätze: ${sent.length} · Infos: ${infos.length}`);
 console.log("Pro Kurs:", Object.entries(kurse).map(([k, n]) => `${k}: ${n}`).join(" · "));
 warnings.forEach(m => console.log("⚠️  " + m));
 errors.forEach(m => console.log("❌ " + m));

@@ -32,5 +32,14 @@
   {"inf": "volere", "de": "wollen / möchten", "forms": ["voglio", "vuoi", "vuole", "vogliamo", "volete", "vogliono"], "gruppe": "unregelmäßig", "kurs": "A1.2"},
   {"inf": "potere", "de": "können / dürfen", "forms": ["posso", "puoi", "può", "possiamo", "potete", "possono"], "gruppe": "unregelmäßig", "kurs": "A1.2"},
   {"inf": "dovere", "de": "müssen / sollen", "forms": ["devo", "devi", "deve", "dobbiamo", "dovete", "devono"], "gruppe": "unregelmäßig", "kurs": "A1.2"},
-  {"inf": "sapere", "de": "wissen / können (Fähigkeit)", "forms": ["so", "sai", "sa", "sappiamo", "sapete", "sanno"], "gruppe": "unregelmäßig", "kurs": "A1.2"}
+  {"inf": "sapere", "de": "wissen / können (Fähigkeit)", "forms": ["so", "sai", "sa", "sappiamo", "sapete", "sanno"], "gruppe": "unregelmäßig", "kurs": "A1.2"},
+  {"inf": "pulire", "de": "putzen", "forms": ["pulisco", "pulisci", "pulisce", "puliamo", "pulite", "puliscono"], "gruppe": "-ire (-isc-)", "kurs": "A1.3", "lektion": "Che tempo fa"},
+  {"inf": "spedire", "de": "schicken", "forms": ["spedisco", "spedisci", "spedisce", "spediamo", "spedite", "spediscono"], "gruppe": "-ire (-isc-)", "kurs": "A1.3", "lektion": "Che tempo fa"},
+  {"inf": "costruire", "de": "bauen", "forms": ["costruisco", "costruisci", "costruisce", "costruiamo", "costruite", "costruiscono"], "gruppe": "-ire (-isc-)", "kurs": "A1.3", "lektion": "Che tempo fa"},
+  {"inf": "guarire", "de": "gesund werden", "forms": ["guarisco", "guarisci", "guarisce", "guariamo", "guarite", "guariscono"], "gruppe": "-ire (-isc-)", "kurs": "A1.3", "lektion": "Che tempo fa"},
+  {"inf": "condire", "de": "würzen", "forms": ["condisco", "condisci", "condisce", "condiamo", "condite", "condiscono"], "gruppe": "-ire (-isc-)", "kurs": "A1.3", "lektion": "Che tempo fa"},
+  {"inf": "starnutire", "de": "niesen", "forms": ["starnutisco", "starnutisci", "starnutisce", "starnutiamo", "starnutite", "starnutiscono"], "gruppe": "-ire (-isc-)", "kurs": "A1.3", "lektion": "Che tempo fa"},
+  {"inf": "arricchire", "de": "bereichern", "forms": ["arricchisco", "arricchisci", "arricchisce", "arricchiamo", "arricchite", "arricchiscono"], "gruppe": "-ire (-isc-)", "kurs": "A1.3", "lektion": "Che tempo fa"},
+  {"inf": "scegliere", "de": "wählen", "forms": ["scelgo", "scegli", "sceglie", "scegliamo", "scegliete", "scelgono"], "gruppe": "unregelmäßig", "kurs": "A1.3", "lektion": "Che tempo fa"},
+  {"inf": "rimanere", "de": "bleiben", "forms": ["rimango", "rimani", "rimane", "rimaniamo", "rimanete", "rimangono"], "gruppe": "unregelmäßig", "kurs": "A1.3", "lektion": "Che tempo fa"}
 ]

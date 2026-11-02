@@ -1,6 +1,6 @@
 [
-  {"words": ["Ciao", "come", "ti", "chiami"], "de": "Hallo, wie heißt du?", "kurs": "A1.1"},
-  {"words": ["Quanti", "anni", "hai"], "de": "Wie alt bist du?", "kurs": "A1.1"},
+  {"words": ["Ciao", "come", "ti", "chiami"], "de": "Hallo, wie heißt du?", "frage": true, "kurs": "A1.1"},
+  {"words": ["Quanti", "anni", "hai"], "de": "Wie alt bist du?", "frage": true, "kurs": "A1.1"},
   {"words": ["Mi", "chiamo", "Francis"], "de": "Ich heiße Francis.", "kurs": "A1.1"},
   {"words": ["Non", "vado", "mai", "al", "cinema"], "de": "Ich gehe nie ins Kino.", "kurs": "A1.1"},
   {"words": ["Leggiamo", "spesso", "libri"], "alt": [["Spesso", "leggiamo", "libri"]], "de": "Wir lesen oft Bücher.", "kurs": "A1.1"},
@@ -10,5 +10,16 @@
   {"words": ["La", "domenica", "dormo", "a", "lungo"], "alt": [["Dormo", "a", "lungo", "la", "domenica"]], "de": "Am Sonntag schlafe ich lange.", "kurs": "A1.1"},
   {"words": ["Il", "sabato", "gioco", "a", "tennis"], "alt": [["Gioco", "a", "tennis", "il", "sabato"]], "de": "Am Samstag spiele ich Tennis.", "kurs": "A1.1"},
   {"words": ["Il", "mercoledì", "mi", "piace", "leggere"], "alt": [["Mi", "piace", "leggere", "il", "mercoledì"]], "de": "Am Mittwoch lese ich gerne.", "kurs": "A1.1"},
-  {"words": ["Qualche", "volta", "bevo", "il", "caffè"], "alt": [["Bevo", "il", "caffè", "qualche", "volta"]], "de": "Manchmal trinke ich Kaffee.", "kurs": "A1.1"}
+  {"words": ["Qualche", "volta", "bevo", "il", "caffè"], "alt": [["Bevo", "il", "caffè", "qualche", "volta"]], "de": "Manchmal trinke ich Kaffee.", "kurs": "A1.1"},
+  {"words": ["Perché", "non", "andiamo", "al", "cinema"], "de": "Warum gehen wir nicht ins Kino?", "frage": true, "kurs": "A1.3", "lektion": "Che tempo fa"},
+  {"words": ["Stasera", "esci", "con", "noi"], "alt": [["Esci", "con", "noi", "stasera"]], "de": "Gehst du heute Abend mit uns aus?", "frage": true, "kurs": "A1.3", "lektion": "Che tempo fa"},
+  {"words": ["Oggi", "piove", "e", "fa", "freddo"], "de": "Heute regnet es und es ist kalt.", "kurs": "A1.3", "lektion": "Che tempo fa"},
+  {"words": ["Il", "cielo", "è", "sereno", "e", "c'è", "il", "sole"], "de": "Der Himmel ist klar und die Sonne scheint.", "kurs": "A1.3", "lektion": "Che tempo fa"},
+  {"words": ["Ho", "voglia", "di", "fare", "una", "passeggiata"], "de": "Ich habe Lust auf einen Spaziergang.", "kurs": "A1.3", "lektion": "Che tempo fa"},
+  {"words": ["Non", "mi", "sento", "bene", "e", "rimango", "a", "casa"], "de": "Ich fühle mich nicht gut und bleibe zu Hause.", "kurs": "A1.3", "lektion": "Che tempo fa"},
+  {"words": ["È", "meglio", "se", "scegli", "tu"], "de": "Es ist besser, wenn du wählst.", "kurs": "A1.3", "lektion": "Che tempo fa"},
+  {"words": ["Vi", "aspetto", "verso", "le", "nove"], "alt": [["Verso", "le", "nove", "vi", "aspetto"]], "de": "Ich erwarte euch gegen neun.", "kurs": "A1.3", "lektion": "Che tempo fa"},
+  {"words": ["Sta", "nevicando", "in", "montagna"], "alt": [["In", "montagna", "sta", "nevicando"]], "de": "In den Bergen schneit es gerade.", "kurs": "A1.3", "lektion": "Che tempo fa"},
+  {"words": ["Non", "capisco", "cosa", "stai", "dicendo"], "de": "Ich verstehe nicht, was du gerade sagst.", "kurs": "A1.3", "lektion": "Che tempo fa"},
+  {"words": ["Preferisco", "stare", "a", "casa", "quando", "piove"], "alt": [["Quando", "piove", "preferisco", "stare", "a", "casa"]], "de": "Ich bleibe lieber zu Hause, wenn es regnet.", "kurs": "A1.3", "lektion": "Che tempo fa"}
 ]

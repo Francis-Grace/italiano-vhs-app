@@ -1,6 +1,6 @@
 # Ripassa l'italiano – Übungs-App für den VHS-Kurs A1
 
-Vokabeln, Passato prossimo und Satzbau aus dem Kurs wiederholen – im Browser, auf dem Handy als App installierbar, auch offline.
+Vokabeln, Verben, Lückensätze und Satzbau aus dem Kurs wiederholen – im Browser, auf dem Handy als App installierbar, auch offline.
 
 **App öffnen:** https://francis-grace.github.io/italiano-vhs-app/
 
@@ -62,13 +62,27 @@ Geübt wird als ganze Tabelle oder als einzelne Form; „io lavoro“ und „lav
 {"pre": "Ieri", "post": "al cinema.", "answers": ["sono andato", "sono andata"], "hint": "andare · io", "kurs": "A1.3", "lektion": 2}
 ```
 
+Übung „Lücken“. Die Datei heißt aus Kompatibilitätsgründen weiter `passato.json`, enthält aber alle Lückensätze. `thema` (optional) steht über der Aufgabe, ohne Angabe „Passato Prossimo“:
+
+```json
+{"pre": "Prendi l'ombrello,", "post": ".", "answers": ["sta piovendo"], "hint": "piovere · stare + Gerundio", "thema": "Stare + Gerundio", "kurs": "A1.3", "lektion": "Che tempo fa"}
+```
+
 ### `data/sentences.json`
 
 ```json
 {"words": ["Il", "sabato", "gioco", "a", "tennis"], "alt": [["Gioco", "a", "tennis", "il", "sabato"]], "de": "Am Samstag spiele ich Tennis.", "kurs": "A1.3"}
 ```
 
-`words` ohne Satzzeichen am Ende. `alt` = weitere richtige Reihenfolgen (optional). Beginnt der Satz mit einem Namen, `"keepCase": true` setzen.
+`words` ohne Satzzeichen am Ende. `alt` = weitere richtige Reihenfolgen (optional). Beginnt der Satz mit einem Namen, `"keepCase": true` setzen. Bei Fragen `"frage": true` setzen, dann erscheint ein Fragezeichen.
+
+### `data/infos.json` (Bereich „Grammatik & Infos“)
+
+```json
+{"titel": "Stare + Gerundio", "text": ["Ein Absatz mit **fett** und *italienisch kursiv*."], "tabelle": {"kopf": ["Infinitiv", "Gerundio"], "zeilen": [["fare", "facendo"]]}, "kurs": "A1.3", "lektion": "Che tempo fa"}
+```
+
+Erscheint unter der Übung, passend zur Auswahl *Kurs* / *Lektion*. `text` und `tabelle` sind einzeln optional, eins von beiden muss da sein.
 
 ### Ablauf
 

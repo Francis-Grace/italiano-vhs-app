@@ -1,10 +1,10 @@
 /* Service Worker: macht die App offline nutzbar.
    Strategie: online immer die neueste Version holen (neue Vokabeln sind sofort da),
    offline auf die zuletzt gespeicherte Version zurückfallen. Schriften & Icons aus dem Cache. */
-const CACHE = "ripassa-v2";
+const CACHE = "ripassa-v3";
 const CORE = [
   "./", "index.html", "css/style.css", "js/app.js", "manifest.webmanifest",
-  "data/vocab.json", "data/passato.json", "data/sentences.json", "data/verbs.json",
+  "data/vocab.json", "data/passato.json", "data/sentences.json", "data/verbs.json", "data/infos.json",
   "fonts/fraunces-latin-400-normal.woff2", "fonts/fraunces-latin-600-normal.woff2", "fonts/fraunces-latin-500-italic.woff2",
   "fonts/dm-sans-latin-400-normal.woff2", "fonts/dm-sans-latin-400-italic.woff2", "fonts/dm-sans-latin-500-normal.woff2",
   "fonts/dm-sans-latin-600-normal.woff2", "fonts/dm-sans-latin-700-normal.woff2",
